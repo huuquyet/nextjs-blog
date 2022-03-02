@@ -1,17 +1,22 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
+
+import Image from "./image";
+import styles from "../styles/layout.module.css";
+import utilStyles from "../styles/utils.module.css";
 
 const name = "Your Name";
 export const siteTitle = "Next.js Sample Website";
+
+const myLoader = ({ src, width, quality }) => {
+  return `${src}?w=${width}&q=${quality || 75}`;
+};
 
 export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="../public/favicon.ico" />
+        <link rel="icon" href="favicon.ico" />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
@@ -29,8 +34,9 @@ export default function Layout({ children, home }) {
         {home ? (
           <>
             <Image
+              loader={myLoader}
               priority
-              src="/images/profile.jpg"
+              src="images/profile.jpg"
               className={utilStyles.borderCircle}
               height={144}
               width={144}
@@ -43,8 +49,9 @@ export default function Layout({ children, home }) {
             <Link href="/">
               <a>
                 <Image
+                  loader={myLoader}
                   priority
-                  src="/images/profile.jpg"
+                  src="../images/profile.jpg"
                   className={utilStyles.borderCircle}
                   height={108}
                   width={108}
