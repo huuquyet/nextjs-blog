@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier --write \"{,!(node_modules)/**/}*.js\"",
-    "predeploy": "yarn next export",
+    "predeploy": "yarn build && yarn next export",
     "deploy": "gh-pages --dotfiles -d out"
   },
   "dependencies": {
