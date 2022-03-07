@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 
-import Image from "./image";
 import styles from "../styles/layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 
@@ -16,7 +16,7 @@ export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/nextjs-blog/favicon.ico" />
+        <link rel="icon" href={process.env.BACKEND_URL + "/favicon.ico"} />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
@@ -36,7 +36,7 @@ export default function Layout({ children, home }) {
             <Image
               loader={myLoader}
               priority
-              src="/nextjs-blog/images/profile.jpg"
+              src={process.env.BACKEND_URL + "/images/profile.jpg"}
               className={utilStyles.borderCircle}
               height={144}
               width={144}
@@ -51,7 +51,7 @@ export default function Layout({ children, home }) {
                 <Image
                   loader={myLoader}
                   priority
-                  src="/nextjs-blog/images/profile.jpg"
+                  src={process.env.BACKEND_URL + "/images/profile.jpg"}
                   className={utilStyles.borderCircle}
                   height={108}
                   width={108}

@@ -7,8 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "format": "prettier --write \"{,!(node_modules)/**/}*.js\"",
-    "predeploy": "yarn build && yarn next export",
+    "predeploy": "yarn build && yarn export",
     "deploy": "gh-pages --dotfiles -d out"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "sharp": "^0.30.2"
   },
   "devDependencies": {
+    "babel-plugin-transform-define": "^2.0.1",
     "eslint": "^8.10.0",
     "eslint-config-next": "^12.1.0",
     "eslint-config-prettier": "^8.4.0",
