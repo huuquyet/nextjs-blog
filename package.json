@@ -3,16 +3,18 @@
   "homepage": "https://huuquyet.github.io/nextjs-blog/",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "bunx next dev",
-    "build": "bunx next build",
-    "start": "bunx next start",
-    "export": "bunx next export",
+    "dev": "bunx --bun next dev",
+    "build": "bunx --bun next build",
+    "start": "bunx --bun next start",
+    "export": "bunx --bun next export",
     "lint": "bunx @biomejs/biome check --write .",
     "predeploy": "bun run build && bun lint && bun export",
     "deploy": "bunx gh-pages --dotfiles -d out"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.7",
     "date-fns": "^3.6.0",
     "gray-matter": "^4.0.3",
     "next": "^14.2.4",
@@ -23,7 +25,9 @@
   },
   "devDependencies": {
     "@types/bun": "^1.1.5",
+    "@types/react": "^18.3.3",
     "gh-pages": "^6.1.1",
-    "sharp": "^0.33.4"
+    "sharp": "^0.33.4",
+    "typescript": "^5.5.2"
   }
 }
