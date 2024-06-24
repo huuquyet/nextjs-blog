@@ -1,26 +1,23 @@
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
 
-import styles from "../styles/layout.module.css";
-import utilStyles from "../styles/utils.module.css";
+import styles from '../styles/layout.module.css'
+import utilStyles from '../styles/utils.module.css'
 
-const name = "Your Name";
-export const siteTitle = "Next.js Sample Website";
+const name = 'Your Name'
+export const siteTitle = 'Next.js Sample Website'
 
 const myLoader = ({ src, width, quality }) => {
-  return `${src}?w=${width}&q=${quality || 75}`;
-};
+  return `${src}?w=${width}&q=${quality || 75}`
+}
 
 export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href={process.env.BACKEND_URL + "/favicon.ico"} />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
+        <link rel="icon" href={'/favicon.ico'} />
+        <meta name="description" content="Learn how to build a personal website using Next.js" />
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
@@ -36,7 +33,7 @@ export default function Layout({ children, home }) {
             <Image
               loader={myLoader}
               priority
-              src={process.env.BACKEND_URL + "/images/profile.jpg"}
+              src={'/images/profile.jpg'}
               className={utilStyles.borderCircle}
               height={144}
               width={144}
@@ -47,21 +44,19 @@ export default function Layout({ children, home }) {
         ) : (
           <>
             <Link href="/">
-              <a>
-                <Image
-                  loader={myLoader}
-                  priority
-                  src={process.env.BACKEND_URL + "/images/profile.jpg"}
-                  className={utilStyles.borderCircle}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
+              <Image
+                loader={myLoader}
+                priority
+                src={'/images/profile.jpg'}
+                className={utilStyles.borderCircle}
+                height={108}
+                width={108}
+                alt={name}
+              />
             </Link>
             <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+              <Link href="/" className={utilStyles.colorInherit}>
+                {name}
               </Link>
             </h2>
           </>
@@ -70,11 +65,9 @@ export default function Layout({ children, home }) {
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
+          <Link href="/">← Back to home</Link>
         </div>
       )}
     </div>
-  );
+  )
 }
