@@ -17,7 +17,7 @@
     "@ducanh2912/next-pwa": "^10.2.7",
     "date-fns": "^3.6.0",
     "gray-matter": "^4.0.3",
-    "next": "^14.2.4",
+    "next": "^16.1.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "remark": "^15.0.1",
